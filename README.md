@@ -1,2 +1,2 @@
-# greates2_infra
-greates2 Infra repository
+For ssh-acces on one line use:
+	ssh -i ~/.ssh/<key-name> -A <user>@<host> ssh <host 2>
