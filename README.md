@@ -3,7 +3,7 @@ For ssh-acces on one line use:
 	ssh -i ~/.ssh/<key-name> -A <user>@<host> ssh <host 2>
 
 Create alias:
-
+	(плохой метод, алисас системы)
 	alias 'someinternalhost=ssh -i ~/.ssh/<key-name> -A <user>@<host> ssh <host 2>'
 
 	now command someinternalhost get second host
@@ -25,4 +25,7 @@ Create alias:
 	User greates
 	CertificateFile ~/.ssh/gcp
 	ProxyJump bastion
+	
+	Для подключения теперь используем команду ssh someinternethost
+
 
