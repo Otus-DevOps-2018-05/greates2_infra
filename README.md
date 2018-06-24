@@ -30,5 +30,8 @@ Create alias:
 	Для подключения теперь используем команду ssh someinternethost
 
 IP addresses:
+
 bastion_IP = 35.205.215.26
+
 someinternalhost_IP = 10.132.0.3
+
