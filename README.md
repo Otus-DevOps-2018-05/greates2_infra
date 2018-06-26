@@ -27,7 +27,7 @@ Create alias:
 	CertificateFile ~/.ssh/gcp
 	ProxyJump bastion
 	
-	Для подключения теперь используем команду ssh someinternethost
+	Для подключения,  используем команду ssh someinternethost
 
 IP addresses:
 
