@@ -7,9 +7,9 @@
 Для создания правила фаервола используем команду:
 
 gcloud compute firewall-rules create default-puma-server \
- --allow=tcp:9292 \ 
- --network=default \ 
- --target-tags=puma-server \ 
+ --allow=tcp:9292 \
+ --network=default \
+ --target-tags=puma-server \
  --source-ranges="0.0.0.0/0"
 
 
