@@ -1,37 +1,20 @@
-For ssh-acces on one line use:
+Для разворачивания пакетов при старте инстанса, используем скрипт https://gist.githubusercontent.com/greates2/96efb41dfcc373afbe2eca12a721cd25/raw/4d2b3a1e54b6d50d24411ed7f9972f6b9cbca6f9/startup-script
 
-	ssh -i ~/.ssh/<key-name> -A <user>@<host> ssh <host 2>
+Прописываем его при создание инстанса, указываем дополнительный параметр команды gcloud:
 
-Create alias:
+--metadata startup-scripts='wget https://gist.githubusercontent.com/greates2/96efb41dfcc373afbe2eca12a721cd25/raw/4d2b3a1e54b6d50d24411ed7f9972f6b9cbca6f9/startup-script | bash'
 
-	(плохой метод, алисас системы)
-	alias 'someinternalhost=ssh -i ~/.ssh/<key-name> -A <user>@<host> ssh <host 2>'
+Для создания правила фаервола используем команду:
 
-	now command someinternalhost get second host
+gcloud compute firewall-rules create default-puma-server \
+ --allow=tcp:9292 \
+ --network=default \
+ --target-tags=puma-server \
+ --source-ranges="0.0.0.0/0"
 
-	Второй вариант (через ssh_config):
 
-	Host bastion
-	User greates
-	AddKeysToAgent yes
-	CertificateFile ~/.ssh/gcp
-	Port 22
-	HostName 35.205.215.26
-	ForwardAgent yes
 
-	Host someinternalhost
-	HostName 10.132.0.3
-	ForwardAgent yes
-	Port 22
-	User greates
-	CertificateFile ~/.ssh/gcp
-	ProxyJump bastion
-	
-	Для подключения,  используем команду ssh someinternethost
 
-IP addresses:
+testapp_IP = 35.195.176.33 
 
-bastion_IP = 35.205.215.26
-
-someinternalhost_IP = 10.132.0.3
-
+testapp_port = 9292 
