@@ -1,6 +1,6 @@
 {
-  "project_name": "infra-208108",
-  "source_image_ubuntu": "ubuntu-1604-lts",
+  "project_name": null,
+  "source_image_ubuntu": null,
   "machine": "f1-micro"
 }
 
