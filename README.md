@@ -1,20 +1,28 @@
-Для разворачивания пакетов при старте инстанса, используем скрипт https://gist.githubusercontent.com/greates2/96efb41dfcc373afbe2eca12a721cd25/raw/4d2b3a1e54b6d50d24411ed7f9972f6b9cbca6f9/startup-script
+# ДЗ 1
+ - Работа с локальным гитом и создание веток.
 
-Прописываем его при создание инстанса, указываем дополнительный параметр команды gcloud:
+# ДЗ 2
+ - Создание PULL_REQUEST__TEMPLATE.md
+ - Создание канала в Slack
+ - Интеграция канала с github.com
+ - Создание .travis.yml
 
---metadata startup-scripts='wget https://gist.githubusercontent.com/greates2/96efb41dfcc373afbe2eca12a721cd25/raw/4d2b3a1e54b6d50d24411ed7f9972f6b9cbca6f9/startup-script | bash'
+# ДЗ 3
+ - Добавлена возможность входа по ssh на сервер
+ - Создана возможность перехода на другой хост через промежуточный
 
-Для создания правила фаервола используем команду:
+# ДЗ 4
+ - Создана автоматическая разветка пакетов при старте инстанса
+ - Автоматическое создание правил firewall на GCP
 
-gcloud compute firewall-rules create default-puma-server \
- --allow=tcp:9292 \
- --network=default \
- --target-tags=puma-server \
- --source-ranges="0.0.0.0/0"
+# ДЗ 5
 
+## В процессе сделано:
+ - Создание образа в GCP через Packer
 
+## Как запустить проект:
+ - packer build ubuntu16.json
 
+## Как проверить работоспособность:
+ - перейти по ссылке http://35.205.213.12:9292/
 
-testapp_IP = 35.195.176.33 
-
-testapp_port = 9292 
