@@ -1,4 +1,6 @@
-variables": {
-    "aws_access_key": "",
-    "aws_secret_key": ""
-  }
+{
+  "project_name": "infra-1111111111",
+  "source_image_ubuntu": "ubuntu-111111111",
+  "machine": "f1-micro"
+}
+
