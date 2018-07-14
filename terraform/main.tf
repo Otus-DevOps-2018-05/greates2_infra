@@ -7,7 +7,7 @@ provider "google" {
 resource "google_compute_instance" "app" {
   name = "reddit-app"
   machine_type = "g1-small"
-  zone = "europe-west1-b"
+  zone = "${var.instance_zone}"
   tags = ["reddit-app"]
   boot_disk {
     initialize_params {
@@ -25,7 +25,7 @@ resource "google_compute_instance" "app" {
     type = "ssh"
     user = "greates"
     agent = false
-    private_key = "${file("~/.ssh/gcp")}"
+    private_key = "${file(private_ssh_connection)}"
   }
   provisioner "file" {
     source = "files/puma.service"
