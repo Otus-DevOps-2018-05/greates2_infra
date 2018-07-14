@@ -4,7 +4,7 @@ variable project {
 
 variable region {
   description = "Region"
-  default = "europe-west1"
+  default     = "europe-west1"
 }
 
 variable public_key_path {
@@ -21,6 +21,5 @@ variable private_ssh_connection {
 
 variable instance_zone {
   description = "Instance zone"
-  default = "europe-west1-b"
+  default     = "europe-west1-b"
 }
-
