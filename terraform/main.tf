@@ -21,6 +21,12 @@ resource "google_compute_instance" "app" {
   metadata {
     ssh-keys = "greates:${file("~/.ssh/gcp.pub")}"
   }
+  connection {
+    type = "ssh"
+    user = "greates"
+    agent = false
+    private_key = "${file("~/.ssh/gcp.pub")}"
+  }
   provisioner "file" {
     source = "files/puma.service"
     destination = "tmp/puma.service"
