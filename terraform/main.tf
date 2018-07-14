@@ -3,6 +3,7 @@ provider "google" {
   project = "infra-208108"
   region = "europe-west1"
 }
+
 resource "google_compute_instance" "app" {
   name = "reddit-app"
   machine_type = "g1-small"
@@ -19,5 +20,16 @@ resource "google_compute_instance" "app" {
   metadata {
     ssh-keys = "greates:${file("~/.ssh/gcp.pub")}"
   }
+}
+
+resource "google_compute_firewall" "firewall_puma" {
+  name = "allow-puma-default"
+  network = "default"
+  allow {
+    protocol = "tcp"
+    ports = ["9292"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags = ["reddit-app"]
 }
 
