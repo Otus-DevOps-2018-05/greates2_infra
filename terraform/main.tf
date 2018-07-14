@@ -22,9 +22,13 @@ resource "google_compute_instance" "app" {
     ssh-keys = "greates:${file("~/.ssh/gcp.pub")}"
   }
   provisioner "file" {
-    source = "file/puma.service"
+    source = "files/puma.service"
     destination = "tmp/puma.service"
   }
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
+
 }
 
 resource "google_compute_firewall" "firewall_puma" {
