@@ -21,6 +21,10 @@ resource "google_compute_instance" "app" {
   metadata {
     ssh-keys = "greates:${file("~/.ssh/gcp.pub")}"
   }
+  provisioner "file" {
+    source = "file/puma.service"
+    destination = "tmp/puma.service"
+  }
 }
 
 resource "google_compute_firewall" "firewall_puma" {
@@ -33,4 +37,5 @@ resource "google_compute_firewall" "firewall_puma" {
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["reddit-app"]
 }
+
 
