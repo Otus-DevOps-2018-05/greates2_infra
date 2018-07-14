@@ -1,7 +1,7 @@
 provider "google" {
   version = "1.4.0"
-  project = "infra-208108"
-  region = "europe-west1"
+  project = "${var.project}"
+  region = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
@@ -11,7 +11,7 @@ resource "google_compute_instance" "app" {
   tags = ["reddit-app"]
   boot_disk {
     initialize_params {
-      image = "reddit-base-1531474243"
+      image = "${var.disk_image}"
     }
   }
   network_interface {
@@ -19,7 +19,7 @@ resource "google_compute_instance" "app" {
     access_config {}
   }
   metadata {
-    ssh-keys = "greates:${file("~/.ssh/gcp.pub")}"
+    ssh-keys = "greates:${file("var.public_key_path")}"
   }
   connection {
     type = "ssh"
