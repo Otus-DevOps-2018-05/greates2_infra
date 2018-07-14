@@ -3,7 +3,7 @@ provider "google" {
   project = "infra-208108"
   region = "europe-west1"
 }
-resource "google_compute_engine" "app" {
+resource "google_compute_instance" "app" {
   name = "reddit-app"
   machine_type = "g1-small"
   zone = "europe-west1-b"
