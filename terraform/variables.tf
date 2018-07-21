@@ -16,17 +16,8 @@ variable public_key_path {
   description = "Path to the public key used for ssh access"
 }
 
-variable disk_image {
-  description = "Disk image"
-}
-
-variable private_ssh_connection {
-  description = "Private ssh-key"
-}
-
-variable instance_zone {
-  description = "Instance zone"
-  default     = "europe-west1-b"
+variable private_key_path {
+  description = "Path to the private key used to connect to instance"
 }
 
 variable app_disk_image {

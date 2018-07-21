@@ -19,7 +19,7 @@ resource "google_compute_instance" "app" {
   }
 
   metadata {
-    ssh-keys = "greates:${file(var.public_key_path)}"
+    sshKeys = "greates:${file(var.public_key_path)}"
   }
 }
 

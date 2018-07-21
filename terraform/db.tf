@@ -1,7 +1,7 @@
 resource "google_compute_instance" "db" {
   name         = "reddit-db"
   machine_type = "g1-small"
-  zone         = "${var.zone}"
+  zone         = "europe-west1-b"
   tags         = ["reddit-db"]
 
   boot_disk {
@@ -16,7 +16,7 @@ resource "google_compute_instance" "db" {
   }
 
   metadata {
-    ssh-keys = "greates:${file(var.public_key_path)}"
+    sshKeys = "greates:${file(var.public_key_path)}"
   }
 }
 
