@@ -14,10 +14,12 @@ variable zone {
 
 variable public_key_path {
   description = "Path to the public key used for ssh access"
+  default     = "~/.ssh/gcp.pub"
 }
 
 variable private_key_path {
   description = "Path to the private key used to connect to instance"
+  default     = "~/.ssh/gcp"
 }
 
 variable app_disk_image {
