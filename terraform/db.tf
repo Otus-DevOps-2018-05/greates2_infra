@@ -19,3 +19,19 @@ resource "google_compute_instance" "db" {
     ssh-keys = "greates:${file(var.public_key_path)}"
   }
 }
+
+resource "google_compute_firewall" "firewall_mongo" {
+  name    = "allow-mongo-default"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["27017"]
+  }
+
+  # правило применимо к инстансам с тегом ...
+  target_tags = ["reddit-db"]
+
+  # порт будет доступен только для инстансов с тегом ...
+  source_tags = ["reddit-app"]
+}
