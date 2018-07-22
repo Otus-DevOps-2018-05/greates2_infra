@@ -1,0 +1,2 @@
+appserver ansible_host=104.199.11.43 ansible_user=greates ansible_private_key_file=~/.ssh/gcp
+dbserver ansible_host=35.195.152.236 ansible_user=greates ansible_private_key_file=~/.ssh/gcp
