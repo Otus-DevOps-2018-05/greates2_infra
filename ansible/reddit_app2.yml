@@ -1,6 +1,8 @@
 ---
 - name: Configure hosts & deploy application MongoDB
   hosts: db
+  tags: db-tag
+  become: true
   vars:
     mongo_bind_ip: 0.0.0.0
   tasks:
@@ -14,6 +16,5 @@
 
   handlers:
   - name: restart mongod
-    become: true
     service: name=mongod state=restarted
 
