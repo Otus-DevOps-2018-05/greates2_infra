@@ -19,6 +19,6 @@ def test_config_file(host):
 
 # check listening port
 def test_listening_port(host):
-    mongo_port = host.socket("tcp://27017")
+    mongo_port = host.socket("tcp://0.0.0.0:27017")
     assert mongo_port.is_listening
 
