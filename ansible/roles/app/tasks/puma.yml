@@ -8,9 +8,9 @@
 - name: Add config for DB connection
   template:
     src: db_config.j2
-    dest: /home/greates/db_config
-    owner: greates
-    group: greates
+    dest: /home/{{ deploy_user }}/db_config
+    owner: {{ deploy_user }} 
+    group: {{ deploy_user }}
 
 - name: enable puma
   systemd: name=puma enabled=yes
