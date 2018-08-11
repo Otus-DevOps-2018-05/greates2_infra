@@ -3,5 +3,7 @@
   hosts: app
   become: true
 
-import_role: name="app"
-import_role: name="jdauphant.nginx"
+  roles:
+    - app
+    - jdauphant.nginx
+
